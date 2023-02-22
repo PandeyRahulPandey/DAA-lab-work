@@ -1,0 +1,37 @@
+#include<iostream>
+using namespace std;
+ int isPresent(int arr[],int key,int start,int end){
+    int mid=start+(end-start)/2;
+    while(start<end){
+        if(arr[mid]==key){
+            return mid;
+        }
+        else if(key>arr[mid])
+        start=mid+1;
+        else 
+        end=mid-1;
+        mid=start+(end-start)/2;
+    }
+    return -1;
+    }
+int main(){
+    int arr[100]={1,2,2,3,3,4,5,6,6};
+    int start=0;
+    int end=8;
+    int key;
+    int count=0;
+    cout<<"enter the key"<<endl;
+    cin>>key;
+    if(isPresent(arr,key,start,end)){
+        cout<<"element present"<<endl;
+        for(int i=0;i<8;i++){
+            if(arr[i]==key)
+            count++;
+        }
+        cout<<"the inputted key is"<<key<<endl<<endl<<"the number of copies of key are"<<endl<<count<<endl;
+    }
+    else
+    cout<<"element not present"<<endl;
+    
+}
+

@@ -1,0 +1,20 @@
+#include<stdio.h>
+int find(int arr[],int n ,int key){
+    int count=0;
+    for(int i=0;i<n;i++){
+        for(int j=i+1;j<n;j++){
+            if(arr[i]-arr[j]==key||arr[j]-arr[i]==key)
+            count++;
+        }
+    }
+    return count;
+}
+int main(){
+    int arr[100]={1,51,84,21,31};
+    int key;
+    printf("enter the key:");
+    scanf("%d",&key);
+    int r=find(arr,5,key);
+    printf("%d",r);
+    return 0;
+}

@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+void print(int arr[],int s,int e){    // for printing the array after each fuction call.
+    for(int i=s;i<=e;i++){
+        cout<<arr[i]<<" ";
+    } cout<<endl;
+}
+bool  binary_Search(int arr[],int s,int e,int key){
+    print(arr,s,e);
+    if(s>e)           //  base condition.
+    return  false;
+     int mid=s+(e-s)/2;
+     cout<<"the mid element is:"<<arr[mid]<<endl;        // printing the middle element.
+    if(arr[mid]==key)      // when key is present.
+    return true;
+   
+    if(key>arr[mid])                             
+   return binary_Search(arr,mid+1,e,key);             // go to right part.
+    else if (key<arr[mid]){
+        return binary_Search(arr,s,mid-1,key);       // go to left part.
+    }
+}
+ int main(){
+      int arr[5]={4,6,7,1,9};
+      int start=0,end=4,key;
+      cout<<"enter the key to be searched:"<<endl;
+      cin>>key;
+      bool r=binary_Search(arr,start,end,key);
+      cout<<r;
+      return 0;
+ }

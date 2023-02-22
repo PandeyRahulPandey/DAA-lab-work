@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+bool isPresent (int arr[],int n){
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            for(int k=0;k<n;k++){
+                
+                if(arr[i]+arr[j]==arr[k]){
+                cout<<"the required indexes are:"<<endl<<i<<endl<<j<<endl<<k<<endl;
+                return 65;
+            }
+        }
+    }
+}
+return false;
+}
+int main(){
+    int arr[100]={0,2,4,16,17};
+    int n=5;
+    bool ans=isPresent(arr,n);
+    cout<<endl<<ans<<endl;
+}
